@@ -427,11 +427,11 @@
 \def\@makechapterhead#1{%
   \vspace*{20bp}%
   {\parindent \z@ \centering
-    \hei\bfseries\csname tongji@title@font\endcsname\sanhao[1]
+    \hei\csname tongji@title@font\endcsname\sanhao[1]
     \ifnum \c@secnumdepth >\m@ne
-      \@chapapp\hskip 1em
+      \pmb{\@chapapp}\hskip 1em
     \fi
-    #1\par\nobreak
+    \pmb{#1}\par\nobreak
     \vskip 24bp}}
 \def\@schapter#1{%
   \@makeschapterhead{#1}
@@ -442,9 +442,9 @@
    \hei\csname tongji@title@font\endcsname\sanhao[1]
      \def\@tempa{#1}
      \def\@tempb{\eabstractname}
-     \ifx\@tempa\@tempb\bfseries\fi
+     \ifx\@tempa\@tempb\fi
    \interlinepenalty\@M
-   #1\par\nobreak
+   \pmb{#1}\par\nobreak
    \vskip 24bp}}
 \newcounter{tongji@bookmark}
 \def\tongji@chapter*{%
@@ -492,7 +492,7 @@
   \setcounter{tocdepth}{3}
 \fi
 \renewcommand\tableofcontents{%
-  \tongji@chapter*[]{\lcontentsname}[\contentsname]
+  \tongji@chapter*[]{\contentsname}
   \thispagestyle{tongji@cabstractheadings}   % edited by wildwolf 20090109
   \pagestyle{tongji@cabstractheadings}   % edited by wildwolf 20090109
   \xiaosi[1.5]\@starttoc{toc}\normalsize}
