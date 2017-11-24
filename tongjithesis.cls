@@ -286,11 +286,13 @@
 \def\ps@tongji@eabstractheadings{
   \def\@oddhead{\vbox to\headheight{%
       \hb@xt@\textwidth{\hfill\wuhao\song%
-      \tongji@eschoolename\hskip 2mm \tongji@edegree\hskip 2mm \leftmark}%
+%      \tongji@eschoolename\hskip 2mm \tongji@edegree\hskip 2mm \leftmark}%
+      \tongji@eschoolename\hskip 2mm \tongji@edegree\hskip 2mm Abstract}%
       \vskip2pt\hbox{\vrule width\textwidth height0.4pt depth0pt}}}
   \def\@evenhead{\vbox to\headheight{%
       \hb@xt@\textwidth{\wuhao\song%
-      \tongji@eschoolename\hskip 2mm \tongji@edegree\hskip 2mm \leftmark\hfill}%
+%      \tongji@eschoolename\hskip 2mm \tongji@edegree\hskip 2mm \leftmark\hfill}%
+      \tongji@eschoolename\hskip 2mm \tongji@edegree\hskip 2mm Abstract\hfill}%
       \vskip2pt\hbox{\vrule width\textwidth height0.4pt depth0pt}}}
   \def\@oddfoot{\hfil\wuhao\thepage\hfil}
   \let\@evenfoot=\@oddfoot}
@@ -739,7 +741,7 @@
   \pagenumbering{Roman}
   \tongji@cabstract
   \vskip12bp
-  \setbox0=\hbox{{\hei\tongji@ckeywords@title}}
+  \setbox0=\hbox{{\hei\tongji@ckeywords@title}\enskip}
   \noindent\hangindent\wd0\hangafter1
     \box0\tongji@ckeywords
   \cleardoublepage % always openright for Abstract
@@ -748,7 +750,7 @@
   \pagestyle{tongji@eabstractheadings}  
   \tongji@eabstract
   \vskip12bp
-  \setbox0=\hbox{\textbf{Key words:\enskip}}
+  \setbox0=\hbox{\textbf{Key Words:\enskip}}
   \noindent\hangindent\wd0\hangafter1
     \box0\tongji@ekeywords}
 \newenvironment{denotation}[1][2.5cm]{
