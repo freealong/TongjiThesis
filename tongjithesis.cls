@@ -772,7 +772,7 @@
    }}{\end{list}}
 \newenvironment{ack}{%
      % \cleardoublepage
-    \tongji@chapter*[\tongji@acklongname]{\tongji@ackname}[\tongji@acklongname]
+    \tongji@chapter*[\tongji@ackshortname]{\tongji@ackshortname}[\tongji@ackshortname]
   \thispagestyle{tongji@cabstractheadings} 
   \pagestyle{tongji@cabstractheadings}  
   }
