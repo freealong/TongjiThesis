@@ -100,8 +100,8 @@
   \setCJKfamilyfont{song}{SimSun}
   \setCJKfamilyfont{hei}{SimHei}
   \setCJKfamilyfont{fs}{FangSong}
-  \setCJKfamilyfont{kai}{KaiTi}
-  %\setCJKfamilyfont{li}{LiSu} % todo: Windows自带字体，无粗体可用
+  \setCJKfamilyfont{kai}{KaiTi}[AutoFakeSlant=0.3, AutoFakeBold]
+  \setCJKfamilyfont{li}{LiSu} % todo: Windows自带字体，无粗体可用
   %\setCJKfamilyfont{you}{Adobe Kaiti Std} % 暂未发现需要
 
   \setmainfont{Times New Roman}
@@ -604,20 +604,22 @@
 \def\tongji@put@title#1{\makebox{\hb@xt@ \tongji@title@width{#1}}}
 \newcommand{\tongji@first@titlepage}{
   \begin{center}
-    \vspace*{0cm}
+    \vspace*{-0.8cm}
     \parbox[b][1.8cm][t]{\textwidth}{%
       \hspace*{11.2cm}\iftongji@secret{\sanhao\tongji@secret@title}\else\rule{1cm}{0cm}\fi\\[0.1cm]
 %        \parbox[t][9cm][t]{\paperwidth-10cm}{
     %\hspace*{.4cm} 
-      \iftongji@electronic{{\kai\xiaosi\tongji@thesistype （打印时删除）}}\else\rule{1cm}{0cm}\fi}\\[-.9cm] %TODO:需要伪斜体？
+      \iftongji@electronic{{\it\bfseries\kai\xiaosi\tongji@thesistype （打印时删除）}}\else\rule{1cm}{0cm}\fi}\\[-.9cm] %TODO:需要伪斜体？
+    \vspace*{0.3cm}
     \parbox[t][1.8cm][t]{\textwidth}{%
     \centering\hspace*{.3cm}
     \includegraphics[width=10cm]{tongji-whole-logo.eps}}\\[-.6cm] % logo
+    \vspace*{0.4cm}
     \parbox[t][9cm][t]{\paperwidth-7cm}{ 
       \renewcommand{\baselinestretch}{1}
       \begin{center}
-            \erhao[1]{{\erhao\li\tongji@capply}}\par\vskip 1.8cm  % no bold for LiShu
-            \linespread{0.7}\selectfont\erhao[2]\textbf{\hei\tongji@ctitle}\par\vskip 17pt
+        \erhao[1]{\erhao\li\pmb{\tongji@capply}}\par\vskip 1.8cm  % no bold for LiShu
+            \linespread{0.7}\selectfont\erhao[2]\pmb{\hei\tongji@ctitle}\par\vskip 17pt
      \ifx\cfunds\@empty\else
             \xiaosi{\tongji@cfunds}
              \par\vskip 20bp\fi
@@ -625,25 +627,25 @@
        \vskip -0.4cm 
       \hspace*{1.2cm}\parbox[t][8.5cm][t]{\textwidth}{{\sanhao[1.5]
         \begin{center}\fs
-          \setlength{\tongji@title@width}{5em}
-          \setlength{\extrarowheight}{4pt}
+          \setlength{\tongji@title@width}{2.1cm}
+          \setlength{\extrarowheight}{6pt}
           \ifxetex % todo: ugly codes
-      \begin{tabular}{p{\tongji@title@width}@{}c@{\extracolsep{8pt}}p{7cm}l}
+      \begin{tabular}{p{\tongji@title@width}@{}c@{\extracolsep{12pt}}p{7cm}l}
           \else
-      \begin{tabular}{p{\tongji@title@width}c@{\extracolsep{8pt}}p{7cm}l}
+      \begin{tabular}{p{\tongji@title@width}c@{\extracolsep{12pt}}p{7cm}l}
           \fi
-              \tongji@put@title{\tongji@cauthortitle}      & \tongji@title@sep & {\ziju{3bp}\tongji@cauthor}\\
-              \tongji@put@title{\tongji@studentnumber}      & \tongji@title@sep & {\ziju{3bp}\tongji@snumber}\\
-              \tongji@put@title{\tongji@cdepartmenttitle}  & \tongji@title@sep & {\ziju{3bp}\tongji@cdepartment}\\
-              \tongji@put@title{\tongji@cmajortitlefirst}       & \tongji@title@sep & {\ziju{3bp}\tongji@cmajorfirst}\\
-              \tongji@put@title{\tongji@cmajortitlesecond} & \tongji@title@sep & {\ziju{3bp}\tongji@cmajorsecond}\\
+              \tongji@put@title{\tongji@cauthortitle}      &\hskip3bp \tongji@title@sep & {\ziju{3bp}\tongji@cauthor}\\
+              \tongji@put@title{\tongji@studentnumber}      &\hskip3bp \tongji@title@sep & {\ziju{3bp}\tongji@snumber}\\
+              \tongji@put@title{\tongji@cdepartmenttitle}  &\hskip3bp \tongji@title@sep & {\ziju{3bp}\tongji@cdepartment}\\
+              \tongji@put@title{\tongji@cmajortitlefirst}       &\hskip3bp \tongji@title@sep & {\ziju{3bp}\tongji@cmajorfirst}\\
+              \tongji@put@title{\tongji@cmajortitlesecond} &\hskip3bp \tongji@title@sep & {\ziju{3bp}\tongji@cmajorsecond}\\
 %              \tongji@put@title{\tongji@cauthortitle}      & \tongji@title@sep & {\ziju{3bp}\tongji@cauthor}\\ 
-              \tongji@put@title{\tongji@csupervisortitle}  & \tongji@title@sep & {\ziju{3bp}\tongji@csupervisor}\\
+              \tongji@put@title{\tongji@csupervisortitle}  &\hskip3bp \tongji@title@sep & {\ziju{3bp}\tongji@csupervisor}\\
               \ifx\tongji@cassosupervisor\@empty\else
-          \tongji@put@title{\tongji@cassosupertitle} & \tongji@title@sep & {\ziju{3bp}\tongji@cassosupervisor}\\
+          \tongji@put@title{\tongji@cassosupertitle} &\hskip3bp \tongji@title@sep & {\ziju{3bp}\tongji@cassosupervisor}\\
               \fi
               \ifx\tongji@ccosupervisor\@empty\else
-                \tongji@put@title{\tongji@ccosupertitle}   & \tongji@title@sep & {\ziju{3bp}\tongji@ccosupervisor}\\
+                \tongji@put@title{\tongji@ccosupertitle}   &\hskip3bp \tongji@title@sep & {\ziju{3bp}\tongji@ccosupervisor}\\
               \fi
             \end{tabular}
         \end{center}}}\\[1.3cm] 
@@ -667,13 +669,13 @@
     \parbox[t][9cm][t]{\paperwidth-6cm}{
       \renewcommand{\baselinestretch}{1}
       \begin{center}
-            \sihao[1.3]{\tongji@eapply}\par\vskip 1.4cm 
+            \sihao[2]{\tongji@eapply}\par\vskip 1.4cm 
             \erhaoban[1.5]\textbf{\bfseries\sffamily\tongji@etitle}\par\vskip 14pt
             \ifx\efunds\@empty\else\xiaosi[1.3]{\tongji@efunds}
              \par\vskip 20bp\fi
       \end{center}}
        %\vskip 0.5cm 
-      \hspace*{1.2cm}\parbox[t][8.7cm][t]{\textwidth}{\sanhao[1.5] 
+      \hspace*{1.2cm}\parbox[t][8.7cm][t]{\textwidth}{\sanhao[1.8] 
         \begin{center}
         \begin{tabular}{lp{6cm}} 
           Candidate :& \tongji@eauthor  \\
@@ -744,7 +746,7 @@
   \pagenumbering{Roman}
   \tongji@cabstract
   \vskip12bp
-  \setbox0=\hbox{{\hei\tongji@ckeywords@title}\enskip}
+  \setbox0=\hbox{{\pmb\tongji@ckeywords@title}\enskip}
   \noindent\hangindent\wd0\hangafter1
     \box0\tongji@ckeywords
   \cleardoublepage % always openright for Abstract
