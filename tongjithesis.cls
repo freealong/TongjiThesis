@@ -85,6 +85,7 @@
 \RequirePackage{subfig}%\RequirePackage[config]{subfig}
 \RequirePackage{indentfirst}
 \RequirePackage[neverdecrease]{paralist}
+\RequirePackage{pdfpages}
 \iftongji@xetex
   \RequirePackage{xunicode,xltxtra}
   \RequirePackage{xeCJK} 
@@ -727,8 +728,10 @@
   \begin{titlepage}
     \tongji@first@titlepage
     \cleardoublepage\engcover
-    \cleardoublepage\tongji@authorization@mk
-    \cleardoublepage\tongji@declareshortname@mk
+%    \cleardoublepage\tongji@authorization@mk
+%    \cleardoublepage\tongji@declareshortname@mk
+    \cleardoublepage\includepdf{authorization.pdf}
+    \cleardoublepage\includepdf{declaration.pdf}
   \end{titlepage}
   \normalsize
   \tongji@makeabstract
